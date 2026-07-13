@@ -1,6 +1,5 @@
 "use client";
 
-import {HelpContainer} from "@/components/help/styles";
 import Link from "next/link";
 import {
   HelpContainer,

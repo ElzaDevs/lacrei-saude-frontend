@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { Menu, X, Heart, Shield } from 'lucide-react';
 
-import { Logo } from '../logo/Logo';
+import { Logo } from '../Logo/Logo';
 import { Button } from '../button/Button';
 
 const HeaderContainer = styled.header`

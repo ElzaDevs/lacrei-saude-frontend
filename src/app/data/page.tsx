@@ -75,3 +75,12 @@ export function Button({
     </StyledButton>
   );
 }
+
+export default function Page() {
+  return (
+    <main>
+      <h1>Data</h1>
+      <Button variant="primary">Exemplo</Button>
+    </main>
+  );
+}

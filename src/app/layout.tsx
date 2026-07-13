@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Lacrei Saúde - Saúde com respeito e acolhimento 🌈',
   description:
     'Na Lacrei Saúde, você encontra profissionais qualificados e sensíveis às necessidades da comunidade LGBTQIAPN+.',
-icon: '/favicon.svg',
+icons: '/favicon.svg',
   };
 
 export const viewport: Viewport = {

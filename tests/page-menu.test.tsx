@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Home from "../page";
-import { ThemeProvider } from "../../styles/ThemeProvider";
+import Home from "../src/app/page";
+import { ThemeProvider } from "../src/styles/ThemeProvider";
 
 
-jest.mock("../../components/button/Button", () => {
+jest.mock("../src/components/button/Button", () => {
   return {
     Button: ({
       children,
@@ -97,3 +97,5 @@ describe("Home Page", () => {
   });
 
 });
+
+

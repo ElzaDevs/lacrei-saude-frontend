@@ -130,7 +130,7 @@ export default function Home() {
           segurança, dignidade e sem julgamentos.
         </HeroDescription>
         <Actions>
-          <Button as={Link} href="/profissionais" variant="primary" size="large">
+          <Button href="/profissionais" variant="primary" size="large">
             Encontrar profissionais
           </Button>
           <Button variant="outline" size="large" onClick={scrollToCards}>
