@@ -7,14 +7,13 @@ import {
   Stethoscope,
 } from "lucide-react";
 
-import { Button } from "../components/button/Button";
+import { Button } from "./components/button/Button";
 
 
 const HomeContainer = styled.main`
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  isolation: isolate;
 
 
   &::before {
@@ -32,8 +31,6 @@ const HomeContainer = styled.main`
     opacity: .25;
 
     pointer-events: none;
-
-    z-index: -1;
   }
 `;
 
@@ -46,35 +43,54 @@ const Hero = styled.section`
   padding: 6rem 1.5rem;
 
   text-align: center;
+
+  animation: fadeUp .8s ease;
+
+
+  @keyframes fadeUp {
+
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  }
 `;
 
 
 const Title = styled.h1`
   font-size: clamp(2rem,5vw,3rem);
 
-  line-height:1.2;
+  line-height: 1.2;
 
-  font-weight:700;
+  font-weight: 700;
 
-  color:${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 
 const Highlight = styled.span`
-  color:${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) =>
+    theme.colors.primary};
 `;
 
 
 const Description = styled.p`
-  margin:1.5rem auto 2rem;
+  margin: 1.5rem auto 2rem;
 
-  max-width:650px;
+  max-width: 650px;
 
-  line-height:1.7;
+  line-height: 1.7;
 
-  font-size:1.1rem;
+  font-size: 1.1rem;
 
-  color:${({ theme }) => theme.colors.text};
+  color: ${({ theme }) =>
+    theme.colors.text};
 `;
 
 
@@ -116,110 +132,98 @@ const Card = styled.article`
 
   border:1px solid #eeeeee;
 
-  transition:.3s;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
 
 
-  &:hover{
+  &:hover {
+
     transform:translateY(-8px);
 
     box-shadow:
       0 15px 35px rgba(0,0,0,.08);
+
   }
 
 
-  h2{
+  svg {
+
+    width:42px;
+
+    height:42px;
+
+    margin-bottom:1rem;
+
+    color:${({ theme }) =>
+      theme.colors.primary};
+
+    stroke-width:1.8;
+
+  }
+
+
+  h2 {
+
     margin-bottom:.8rem;
+
   }
 
 
-  p{
+  p {
+
     line-height:1.5;
 
-    color:${({ theme }) => theme.colors.text};
+    color:${({ theme }) =>
+      theme.colors.text};
+
   }
-`;
-
-
-const IconBox = styled.div`
-  width:60px;
-
-  height:60px;
-
-  margin:0 auto 1rem;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-
-  border-radius:50%;
-
-  background:rgba(0,170,140,.12);
-
-
-  svg{
-
-    width:32px;
-
-    height:32px;
-
-    color:${({ theme }) => theme.colors.primary};
-
-    stroke-width:2;
-  }
-`;
-
-
-const CardTitle = styled.h2`
-  font-size:1.25rem;
-`;
-
-
-const CardDescription = styled.p`
-  color:${({ theme }) => theme.colors.text};
 `;
 
 
 const CommunityTitle = styled.h2`
+
   text-align:center;
 
   margin:4rem 1rem;
 
   font-size:clamp(1.8rem,4vw,2.5rem);
 
-  color:${({ theme }) => theme.colors.text};
+  color:${({ theme }) =>
+    theme.colors.text};
+
+
+  animation:fadeCommunity .9s ease;
+
+
+  @keyframes fadeCommunity {
+
+    from {
+
+      opacity:0;
+
+      transform:translateY(25px);
+
+    }
+
+
+    to {
+
+      opacity:1;
+
+      transform:translateY(0);
+
+    }
+
+  }
+
 `;
 
 
-const cards = [
-  {
-    icon: ShieldCheck,
-    title:"Ambiente seguro",
-    text:
-      "Sua identidade é respeitada aqui. Sinta-se acolhido em nossa comunidade.",
-  },
 
-  {
-    icon: UsersRound,
-    title:"Rede de apoio",
-    text:
-      "Mais que saúde, uma comunidade que cuida de você com respeito e empatia.",
-  },
+export default function Home() {
 
-  {
-    icon: Stethoscope,
-    title:"Profissionais qualificados",
-    text:
-      "Atendimento humanizado por profissionais preparados para acolher a diversidade.",
-  },
-];
-
-
-export default function Home(){
-
-  return(
+  return (
 
     <HomeContainer>
 
@@ -246,7 +250,6 @@ export default function Home(){
         </Title>
 
 
-
         <Description>
 
           Profissionais preparados para atender a comunidade LGBTQIAPN+
@@ -264,7 +267,9 @@ export default function Home(){
             variant="primary"
             size="large"
           >
+
             Encontrar profissionais
+
           </Button>
 
 
@@ -274,7 +279,9 @@ export default function Home(){
             variant="outline"
             size="large"
           >
+
             Saber mais
+
           </Button>
 
 
@@ -288,43 +295,52 @@ export default function Home(){
       <Cards>
 
 
-        {cards.map((item)=>{
+        <Card>
 
-          const Icon = item.icon;
+          <ShieldCheck aria-hidden="true"/>
 
+          <h2>
+            Ambiente seguro
+          </h2>
 
-          return(
+          <p>
+            Sua identidade é respeitada aqui.
+            Sinta-se acolhido em nossa comunidade.
+          </p>
 
-            <Card key={item.title}>
-
-
-              <IconBox>
-
-                <Icon
-                  aria-hidden="true"
-                  focusable="false"
-                />
-
-              </IconBox>
+        </Card>
 
 
 
-              <CardTitle>
-                {item.title}
-              </CardTitle>
+        <Card>
+
+          <UsersRound aria-hidden="true"/>
+
+          <h2>
+            Rede de apoio
+          </h2>
+
+          <p>
+            Mais que saúde, uma comunidade que cuida melhor de você.
+          </p>
+
+        </Card>
 
 
 
-              <CardDescription>
-                {item.text}
-              </CardDescription>
+        <Card>
 
+          <Stethoscope aria-hidden="true"/>
 
-            </Card>
+          <h2>
+            Profissionais qualificados
+          </h2>
 
-          );
+          <p>
+            Atendimento com empatia, acolhimento e experiência.
+          </p>
 
-        })}
+        </Card>
 
 
       </Cards>
@@ -338,9 +354,7 @@ export default function Home(){
       </CommunityTitle>
 
 
-
     </HomeContainer>
 
   );
-
 }

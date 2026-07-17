@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import {
   HelpContainer,
   HelpContent,
@@ -11,7 +12,7 @@ import {
   HelpButton,
 } from "./style";
 
-export default function Page() {
+export default function AjudaPage() {
   return (
     <HelpContainer>
       <HelpContent>
@@ -24,20 +25,26 @@ export default function Page() {
           Encontre respostas para suas dúvidas sobre a Lacrei Saúde,
           consultas, profissionais e atendimento inclusivo.
         </HelpSubtitle>
+
         <HelpSection>
+
           <HelpCard>
             <h2>
               Como encontrar um profissional?
             </h2>
+
             <p>
               Acesse a área de profissionais e encontre especialistas
               preparados para oferecer um atendimento seguro, respeitoso
               e acolhedor.
             </p>
-            <Link href="/profissionais">
+
+            <HelpButton as={Link} href="/profissionais">
               Encontrar profissional
-            </Link>
+            </HelpButton>
           </HelpCard>
+
+
           <HelpCard>
             <h2>
               Como funciona a consulta?
@@ -48,22 +55,30 @@ export default function Page() {
               proporcionando uma experiência acessível e humanizada.
             </p>
           </HelpCard>
+
+
           <HelpCard>
             <h2>
               Preciso de suporte
             </h2>
+
             <p>
               Caso tenha dúvidas sobre a plataforma ou precise de ajuda,
               entre em contato com nossa equipe.
             </p>
-     <Link href="/contato">
+
+            <HelpButton as={Link} href="/contato">
               Falar com suporte
-    </Link>
+            </HelpButton>
           </HelpCard>
+
         </HelpSection>
-        <HelpButton href="/">
+
+
+        <HelpButton as={Link} href="/">
           Voltar para início
         </HelpButton>
+
       </HelpContent>
     </HelpContainer>
   );
